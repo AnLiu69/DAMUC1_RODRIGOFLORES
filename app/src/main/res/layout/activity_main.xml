@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#275087"
     android:padding="16dp"
     app:layout_constraintEnd_toEndOf="parent"
     tools:context=".MainActivity">
@@ -17,153 +18,161 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Registrarte"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
 
     <!-- Apellido -->
 
     <!-- Número de celular o correo electrónico -->
+
     <EditText
         android:id="@+id/apellido"
-        android:layout_width="0dp"
+        android:layout_width="182dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:hint="Apellido"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/nombre"
+        app:layout_constraintStart_toEndOf="@+id/nombre"
         app:layout_constraintTop_toTopOf="@+id/nombre" />
+
+    <EditText
+        android:id="@+id/correo"
+        android:layout_width="379dp"
+        android:layout_height="wrap_content"
+        android:hint="Número de celular o correo electrónico"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toStartOf="@+id/nombre"
+        app:layout_constraintTop_toBottomOf="@+id/nombre" />
+
+    <EditText
+        android:id="@+id/nombre"
+        android:layout_width="182dp"
+        android:layout_height="wrap_content"
+        android:hint="Nombre"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="373dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="Contraseña nueva"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="@+id/correo"
+        app:layout_constraintTop_toBottomOf="@+id/correo" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine"
+        android:layout_width="391dp"
+        android:layout_height="190dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:text='Es posible que las personas que usan nuestro serviccio hayan subido tu  información de contacto a facebook. Más información  Al hacer clic en "Registrarte", aceptas nuestrsa Condiciones, la Política de privacidad y la Política de cookies. Es posible que te enviemos notificaciones por SMS, que puedes desactivar cuando quieras.'
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/dia"
+        app:layout_constraintTop_toBottomOf="@+id/mes" />
 
     <TextView
         android:id="@+id/fecha_nacimiento_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Fecha de nacimiento"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/password"
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
-    <EditText
-        android:id="@+id/nombre"
-        android:layout_width="0dp"
+    <Button
+        android:id="@+id/registrar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:hint="Nombre"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@id/apellido"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:backgroundTint="#42B72A"
+        android:text="Registrarte"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine"
+        tools:layout_editor_absoluteX="146dp" />
 
     <TextView
         android:id="@+id/genero_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Género"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dia" />
+        app:layout_constraintStart_toStartOf="@+id/mujer"
+        app:layout_constraintTop_toBottomOf="@+id/mujer" />
 
-    <Spinner
-        android:id="@+id/anio"
+    <RadioButton
+        android:id="@+id/personalizado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:entries="@array/years"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/mes"
-        app:layout_constraintTop_toTopOf="@+id/dia" />
+        android:text="Personalizado"
+        app:layout_constraintStart_toEndOf="@+id/hombre"
+        app:layout_constraintTop_toTopOf="@+id/mujer" />
 
-    <RadioGroup
-        android:id="@+id/genero"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.376"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/genero_label">
-
-        <RadioButton
-            android:id="@+id/mujer"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Mujer" />
-
-        <RadioButton
-            android:id="@+id/hombre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hombre" />
-
-        <RadioButton
-            android:id="@+id/personalizado"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Personalizado" />
-    </RadioGroup>
-
-    <Button
-        android:id="@+id/registrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@android:color/holo_green_dark"
-        android:text="Registrarte"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/genero" />
+    <RadioButton
+        android:id="@+id/mujer"
+        android:layout_width="77dp"
+        android:layout_height="37dp"
+        android:text="Mujer"
+        app:layout_constraintStart_toStartOf="@+id/fecha_nacimiento_label"
+        app:layout_constraintTop_toBottomOf="@+id/fecha_nacimiento_label" />
 
     <Spinner
         android:id="@+id/mes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:entries="@array/months"
-        app:layout_constraintStart_toEndOf="@id/dia"
-        app:layout_constraintTop_toTopOf="@+id/dia" />
+        app:layout_constraintStart_toEndOf="@+id/dia"
+        app:layout_constraintTop_toBottomOf="@+id/genero_label" />
+
+    <Spinner
+        android:id="@+id/anio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/years"
+        app:layout_constraintStart_toEndOf="@+id/mes"
+        app:layout_constraintTop_toBottomOf="@+id/genero_label" />
+
+    <RadioButton
+        android:id="@+id/hombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hombre"
+        app:layout_constraintStart_toEndOf="@+id/mujer"
+        app:layout_constraintTop_toBottomOf="@+id/fecha_nacimiento_label" />
 
     <Spinner
         android:id="@+id/dia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:entries="@array/days"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fecha_nacimiento_label" />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="373dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Contraseña nueva"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/correo"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/correo"
-        app:layout_constraintTop_toBottomOf="@+id/correo" />
-
-    <EditText
-        android:id="@+id/correo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Número de celular o correo electrónico"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombre" />
+        app:layout_constraintStart_toStartOf="@+id/genero_label"
+        app:layout_constraintTop_toBottomOf="@+id/genero_label" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="169dp"
         android:layout_height="35dp"
         android:text="Es rápido y fácil."
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="@+id/registrate"
         app:layout_constraintTop_toBottomOf="@+id/registrate" />
+
+    <RadioGroup
+        android:id="@+id/genero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="70dp"
+        tools:layout_editor_absoluteY="370dp">
+
+    </RadioGroup>
 
     <!-- Contraseña -->
 
